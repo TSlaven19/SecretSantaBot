@@ -14,7 +14,7 @@ async def solicitEnroll(user: discord.User, client: discord.Client):
         return user == r_user and str(reaction.emoji) == "🎄"
 
     try:
-        await client.wait_for("reaction_add", timeout=10.0, check=check)
+        await client.wait_for("reaction_add", timeout=120.0, check=check)
     except asyncio.TimeoutError:
         await user.send("You didn't answer.\nThat's okay; I won't ask again.")
         return False
