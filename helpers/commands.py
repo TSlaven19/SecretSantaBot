@@ -54,16 +54,16 @@ async def help(message: discord.Message):
 
 
 async def userData(message: discord.Message):
-    user = message.author
+    opUser = message.author
     ret = ""
     async with message.channel.typing():
         for user, info in client.enrolled.items():
             ret += str(user) + "\t*" + str(user.id) + "*\n\t\t`"
             ret += str(info) + "\n`"
     try:
-        await user.send(ret)
+        await opUser.send(ret)
     except:
-        await user.send("Something went wrong. There are probably no users enrolled.")
+        await opUser.send("Something went wrong. There are probably no users enrolled.")
 
 
 async def resetUser(message: discord.Message):
